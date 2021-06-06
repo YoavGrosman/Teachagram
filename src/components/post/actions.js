@@ -3,7 +3,7 @@ import { PropTypes } from 'prop-types';
 import FirebaseContext from '../../context/firebase'
 import UserContext from '../../context/user'
 
-export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }) {
+export default function Actions({ caption, src, docId, totalLikes, likedPhoto, handleFocus }) {
     const {
         user: { uid: userId = '' }
     } = useContext(UserContext)
@@ -26,6 +26,8 @@ export default function Actions({ docId, totalLikes, likedPhoto, handleFocus }) 
 
     return (
         <>
+            <img src={src} className="" alt={caption}
+                onDoubleClick={handleToggleLiked} />
             <div className="flex justify-between p-4">
                 <div className="flex">
                     <svg

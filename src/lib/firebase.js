@@ -1,5 +1,6 @@
 import Firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/storage';
 import 'firebase/auth';
 
 import { seedDatabase } from '../seed'
@@ -15,8 +16,9 @@ const config = {
 
 const firebase = Firebase.initializeApp(config);
 const { FieldValue } = Firebase.firestore;
+const firebaseStorage = Firebase.storage();
 
 // Create initial User Database
 // seedDatabase(firebase);
 
-export { firebase, FieldValue };
+export { firebase, FieldValue, firebaseStorage };

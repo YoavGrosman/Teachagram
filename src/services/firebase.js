@@ -89,6 +89,9 @@ export async function updateFollowdUserFollowers(
 }
 
 export async function getPhotos(userId, following) {
+    // Also show loggedIn posts
+    following.push(userId);
+
     const result = await firebase
         .firestore()
         .collection('photos')

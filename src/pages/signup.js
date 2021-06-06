@@ -18,9 +18,8 @@ export default function Signup() {
 
     const handleSignup = async (event) => {
         event.preventDefault();
-        console.log('hello');
+
         const usernameExists = await doesUsernameExists(username);
-        console.log('usernameExists', usernameExists)
         if (!usernameExists.length) {
             try {
                 const createdUserResults = await firebase
@@ -37,6 +36,7 @@ export default function Signup() {
                     fullName,
                     emailAddress: emailAddress.toLowerCase(),
                     following: [],
+                    followers: [],
                     dateCreated: Date.now()
                 });
 

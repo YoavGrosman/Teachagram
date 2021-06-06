@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { PropTypes } from 'prop-types';
 import Header from './header'
-import Image from './image'
 import Actions from './actions'
 import Footer from './footer';
 import Comments from './comments';
@@ -14,8 +13,9 @@ export default function Post({ content }) {
     return (
         <div className="rounded col-span-4 border bg-white border-gray-primary mb-12">
             <Header username={content.username}></Header>
-            <Image src={content.imageSrc} caption={content.caption}></Image>
             <Actions
+                src={content.imageSrc}
+                caption={content.caption}
                 docId={content.docId}
                 totalLikes={content.likes.length}
                 likedPhoto={content.userLikedPhoto}
