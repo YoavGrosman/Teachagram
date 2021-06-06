@@ -10,6 +10,7 @@ export default function usePhotos() {
 
     useEffect(() => {
         async function getTimeLinePhotos() {
+            console.log('getTimeLinePhotos')
             const [{ following }] = await getUserByUserId(userId)
             let followUserPhotos = [];
 
@@ -18,11 +19,17 @@ export default function usePhotos() {
             }
 
             followUserPhotos.sort((a, b) => b.dateCreated - a.dateCreated);
+
+            console.log('About to set Photos:', followUserPhotos)
             setPhotos(followUserPhotos);
         }
 
         getTimeLinePhotos();
-    }, [userId, photos]);
 
-    return { photos }
+        return () => {
+            console.log('cleanup')
+        }
+    }, [userId]);
+
+    return { photos, setPhotos }
 }
