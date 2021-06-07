@@ -19,6 +19,8 @@ export default function UserProfile({ user }) {
     useEffect(() => {
         async function getProfileInfoAndPhotos() {
             const photos = await getUserPhotosByUserId(user.userId)
+            photos.sort((a, b) => b.dateCreated - a.dateCreated);
+
             dispatch({ profile: user, photosCollection: photos, followerCount: user.followers.length });
         }
 

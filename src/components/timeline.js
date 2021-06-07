@@ -24,7 +24,8 @@ export default function Timeline() {
         event.preventDefault();
         const photo = event.target.files[0];
 
-        if (photo && types.includes(photo.type) && window.confirm("Upload new image to your profile?")) {
+        if (photo && types.includes(photo.type)) {
+            const caption = prompt("What's on your mind?");
             const storageRef = await firebase.storage().ref(photo.name);
 
             // Upload to Firestorage
@@ -36,7 +37,7 @@ export default function Timeline() {
                         .firestore()
                         .collection('photos')
                         .add({
-                            caption: 'Hello is it you?',
+                            caption: caption,
                             userId: userId,
                             photoId: photo.name,
                             imageSrc: url,
@@ -48,7 +49,7 @@ export default function Timeline() {
                         })
 
                     const newPhoto = {
-                        caption: 'Hello is it you?',
+                        caption: caption,
                         comments: [],
                         likes: [],
                         docId: id,
