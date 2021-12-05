@@ -49,6 +49,7 @@ export default function Signup() {
                 setError(error.message)
             }
         } else {
+            setUsername('');
             setError('Username taken, please try another.');
         }
     }

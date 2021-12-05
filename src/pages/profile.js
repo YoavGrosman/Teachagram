@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types'
 import { useParams, useHistory } from 'react-router-dom'
 import { getUserByUsername } from '../services/firebase'
 import * as ROUTES from '../constants/routes'
