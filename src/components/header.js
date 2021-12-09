@@ -67,7 +67,7 @@ export default function Header() {
                                 <div className="flex items-cetner cursor-pointer">
                                     <Link to={`/p/${user.displayName}`}>
                                         <img className="rounded-full h-8 w-8 flex"
-                                            src={`/images/avatars/${user.displayName}.jpg`}
+                                            src={`/images/avatars/yoavgman.jpg`}
                                         />
                                     </Link>
                                 </div>
